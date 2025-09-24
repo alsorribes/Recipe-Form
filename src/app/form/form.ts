@@ -12,19 +12,22 @@ import {
 import {
   IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem,
   IonLabel, IonInput, IonTextarea, IonButton, IonIcon, IonGrid,
-  IonRow, IonCol, IonText, IonNote, IonListHeader, IonBadge, IonFooter
+  IonRow, IonCol, IonText, IonNote, IonListHeader, IonBadge, IonFooter,
+  IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonCardSubtitle
 } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-receta-form',
   standalone: true,
+  styleUrls: ['./form.css'],  //Declarar estils per a aplicar millores visuals
   imports: [
     CommonModule,
     ReactiveFormsModule,
     // Ionic UI
     IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem,
     IonLabel, IonInput, IonTextarea, IonButton, IonIcon, IonGrid,
-    IonRow, IonCol, IonText, IonNote, IonListHeader, IonBadge, IonFooter
+    IonRow, IonCol, IonText, IonNote, IonListHeader, IonBadge, IonFooter,
+    IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonCardSubtitle
   ],
   templateUrl: './form.html',
 })
@@ -35,7 +38,6 @@ export class FormComponent {
     this.recetaForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       descripcion: [''],
-      porciones: [1, [Validators.required, Validators.min(1)]],
       ingredientes: this.fb.array([this.crearIngrediente()]),
       pasos: this.fb.array([this.crearPaso()]),
     });
@@ -43,6 +45,15 @@ export class FormComponent {
 
   // Subformularios
   crearIngrediente(): FormGroup {
+    return this.fb.group({
+      nombre: ['', Validators.required],
+      cantidad: ['', Validators.required],
+      unidad: [''],
+      alternativas: this.fb.array([]),
+    });
+  }
+
+  crearAlternativa(): FormGroup {
     return this.fb.group({
       nombre: ['', Validators.required],
       cantidad: ['', Validators.required],

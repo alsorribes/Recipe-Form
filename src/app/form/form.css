@@ -1,0 +1,17 @@
+/* Fondo con degradado verde + texto blanco + un poco más alto */
+.app-toolbar {
+  --background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+  --color: #fff;           /* color del texto y los iconos del toolbar */
+  --min-height: 64px;      /* altura un pelín mayor opcional */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15); /* sombra sutil */
+}
+
+/* Título centrado y más grande */
+.app-title {
+  font-size: 24px;         /* más grande */
+  font-weight: 700;        /* más grueso */
+  letter-spacing: 0.3px;   /* opcional, un toque tipográfico */
+  color: #fff;             /* asegura letras blancas */
+  text-align: center;      /* fuerza centrado en iOS/Android */
+  width: 100%;
+}
