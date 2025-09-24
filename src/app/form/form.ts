@@ -1,4 +1,3 @@
-// src/app/features/recetas/pages/receta-form/receta-form.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {

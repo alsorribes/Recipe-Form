@@ -1,7 +1,6 @@
-<!-- src/app/features/recetas/pages/receta-form/receta-form.component.html -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>Nueva receta</ion-title>
+    <ion-title>Nova recepta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,26 +12,26 @@
         <ion-label position="stacked">Nombre *</ion-label>
         <ion-input
           formControlName="nombre"
-          placeholder="Ej: Tortilla de patatas">
+          placeholder="Ex: Truita de patates">
         </ion-input>
       </ion-item>
       <ion-note color="danger" *ngIf="recetaForm.get('nombre')?.touched && recetaForm.get('nombre')?.invalid">
-        El nombre es obligatorio (mín. 3 caracteres)
+        El nom es obligatori (mín. 3 caracters)
       </ion-note>
 
       <!-- Descripción -->
       <ion-item>
-        <ion-label position="stacked">Descripción</ion-label>
+        <ion-label position="stacked">Descripció</ion-label>
         <ion-textarea
           formControlName="descripcion"
           auto-grow="true"
-          placeholder="Breve descripción...">
+          placeholder="Descripció breu...">
         </ion-textarea>
       </ion-item>
 
       <!-- Porciones -->
       <ion-item>
-        <ion-label position="stacked">Porciones *</ion-label>
+        <ion-label position="stacked">Porcions *</ion-label>
         <ion-input
           type="number"
           formControlName="porciones"
@@ -43,29 +42,29 @@
 
     <ion-list class="ion-margin-top" lines="full">
       <ion-list-header>
-        <ion-label>Ingredientes</ion-label>
+        <ion-label>Ingredients</ion-label>
         <ion-badge color="medium" slot="end">{{ ingredientes.length }}</ion-badge>
       </ion-list-header>
 
       <ng-container formArrayName="ingredientes">
         <div *ngFor="let ing of ingredientes.controls; let i = index" [formGroupName]="i">
           <ion-item>
-            <ion-label position="stacked">Nombre *</ion-label>
-            <ion-input formControlName="nombre" placeholder="Ej: Patatas"></ion-input>
+            <ion-label position="stacked">Nom *</ion-label>
+            <ion-input formControlName="nombre" placeholder="Ex: Patates"></ion-input>
           </ion-item>
 
           <ion-grid>
             <ion-row>
               <ion-col size="6">
                 <ion-item>
-                  <ion-label position="stacked">Cantidad *</ion-label>
-                  <ion-input formControlName="cantidad" placeholder="Ej: 3"></ion-input>
+                  <ion-label position="stacked">Cantitat *</ion-label>
+                  <ion-input formControlName="cantidad" placeholder="Ex: 3"></ion-input>
                 </ion-item>
               </ion-col>
               <ion-col size="6">
                 <ion-item>
-                  <ion-label position="stacked">Unidad</ion-label>
-                  <ion-input formControlName="unidad" placeholder="g, ml, taza..."></ion-input>
+                  <ion-label position="stacked">Unitat</ion-label>
+                  <ion-input formControlName="unidad" placeholder="g, ml, tassa..."></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -74,7 +73,7 @@
           <div class="ion-text-right ion-margin-bottom">
             <ion-button color="danger" fill="outline" size="small" (click)="removeIngrediente(i)" *ngIf="ingredientes.length > 1">
               <ion-icon name="trash-outline" slot="start"></ion-icon>
-              Eliminar ingrediente
+              Eliminar ingredient
             </ion-button>
           </div>
 
@@ -84,37 +83,37 @@
 
       <ion-button expand="block" fill="clear" (click)="addIngrediente()">
         <ion-icon name="add-circle-outline" slot="start"></ion-icon>
-        Añadir ingrediente
+        Afegir ingredient
       </ion-button>
     </ion-list>
 
     <ion-list class="ion-margin-top" lines="full">
       <ion-list-header>
-        <ion-label>Pasos</ion-label>
+        <ion-label>Passos</ion-label>
         <ion-badge color="medium" slot="end">{{ pasos.length }}</ion-badge>
       </ion-list-header>
 
       <ng-container formArrayName="pasos">
         <div *ngFor="let p of pasos.controls; let i = index" [formGroupName]="i">
           <ion-item>
-            <ion-label position="stacked">Título *</ion-label>
-            <ion-input formControlName="titulo" placeholder="Ej: Preparación"></ion-input>
+            <ion-label position="stacked">Títol *</ion-label>
+            <ion-input formControlName="titulo" placeholder="Ex: Preparació"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label position="stacked">Detalle *</ion-label>
-            <ion-textarea formControlName="detalle" auto-grow="true" placeholder="Describe el paso..."></ion-textarea>
+            <ion-label position="stacked">Detalls *</ion-label>
+            <ion-textarea formControlName="detalle" auto-grow="true" placeholder="Descriu el pas..."></ion-textarea>
           </ion-item>
 
           <ion-item>
-            <ion-label position="stacked">Tiempo (min)</ion-label>
+            <ion-label position="stacked">Temps (min)</ion-label>
             <ion-input type="number" min="0" formControlName="tiempoMin"></ion-input>
           </ion-item>
 
           <div class="ion-text-right ion-margin-bottom">
             <ion-button color="danger" fill="outline" size="small" (click)="removePaso(i)" *ngIf="pasos.length > 1">
               <ion-icon name="trash-outline" slot="start"></ion-icon>
-              Eliminar paso
+              Eliminar pas
             </ion-button>
           </div>
 
@@ -124,14 +123,14 @@
 
       <ion-button expand="block" fill="clear" (click)="addPaso()">
         <ion-icon name="add-circle-outline" slot="start"></ion-icon>
-        Añadir paso
+        Afegir pas
       </ion-button>
     </ion-list>
 
     <div class="ion-margin-top">
       <ion-button type="submit" expand="block">
         <ion-icon name="save-outline" slot="start"></ion-icon>
-        Guardar receta
+        Guardar recepta
       </ion-button>
     </div>
   </form>
